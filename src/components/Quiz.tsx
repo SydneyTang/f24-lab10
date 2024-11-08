@@ -20,6 +20,12 @@ const Quiz: React.FC = () => {
   const handleButtonClick = (): void => {
     // TODO: Task3 - Implement the logic for button click ("Next Question" and "Submit").
     // Hint: You might want to check for a function in the core logic to help with this.
+    if (quizCore.hasNextQuestion()) {
+      quizCore.nextQuestion();
+      setSelectedAnswer(null); // Clear selected answer for new question
+    } else {
+        setIsQuizCompleted(true);
+    }
   } 
 
   if (isQuizCompleted) {
